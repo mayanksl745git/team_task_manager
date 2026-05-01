@@ -73,4 +73,18 @@ async function startServer() {
   }
 }
 
+console.log('Loading routes...');
+try {
+  require('./routes/authRoutes');
+  console.log('auth ok');
+  require('./routes/userRoutes');
+  console.log('user ok');
+  require('./routes/projectRoutes');
+  console.log('project ok');
+  require('./routes/taskRoutes');
+  console.log('task ok');
+} catch(e) {
+  console.error('Route load error:', e.message);
+  process.exit(1);
+}
 startServer();
