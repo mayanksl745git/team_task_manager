@@ -2,7 +2,7 @@
   "name": "team-task-manager",
   "version": "1.0.0",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "cd server && node server.js",
     "install": "npm install --prefix server && npm install --prefix client"
   },
   "engines": {
