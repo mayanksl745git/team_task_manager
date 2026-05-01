@@ -1,6 +1,3 @@
-const crypto = require('crypto');
-console.log('Node version:', process.version);
-console.log('Crypto test:', crypto.randomBytes(4).toString('hex'));
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -12,8 +9,6 @@ const projectRoutes = require('./routes/projectRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 
 dotenv.config();
-console.log('MONGO_URI:', process.env.MONGO_URI ? 'FOUND' : 'UNDEFINED');
-console.log('All env keys:', Object.keys(process.env).filter(k => !k.includes('npm')));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -73,18 +68,4 @@ async function startServer() {
   }
 }
 
-console.log('Loading routes...');
-try {
-  require('./routes/authRoutes');
-  console.log('auth ok');
-  require('./routes/userRoutes');
-  console.log('user ok');
-  require('./routes/projectRoutes');
-  console.log('project ok');
-  require('./routes/taskRoutes');
-  console.log('task ok');
-} catch(e) {
-  console.error('Route load error:', e.message);
-  process.exit(1);
-}
 startServer();
