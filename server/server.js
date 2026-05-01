@@ -9,6 +9,8 @@ const projectRoutes = require('./routes/projectRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 
 dotenv.config();
+console.log('MONGO_URI:', process.env.MONGO_URI ? 'FOUND' : 'UNDEFINED');
+console.log('All env keys:', Object.keys(process.env).filter(k => !k.includes('npm')));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
