@@ -1,4 +1,6 @@
 const crypto = require('crypto');
+console.log('Node version:', process.version);
+console.log('Crypto test:', crypto.randomBytes(4).toString('hex'));
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
